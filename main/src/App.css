@@ -1,0 +1,87 @@
+.bgimg {
+  background-image: url("Images/NavbarBg.jpg");
+  margin-top: 0;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.bgimg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.h1font {
+  font-family: "Inter", sans-serif;
+}
+
+/*.offimg {
+  background-image: url("Images/homeMiddle.jpg");
+  background-size: cover;
+    height: 70vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.offimg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.offimg > * {
+  z-index: 1; 
+} */
+
+.fullscreen-bg {
+  background-image: url("Images/homeMiddle.jpg"); /* your actual image path */
+  background-size: cover; /* Ensures it fills the container */
+  background-position: center; /* Keeps it centered on all screens */
+  background-repeat: no-repeat; /* No tiling */
+  background-attachment: fixed; /* Optional: adds parallax effect */
+
+  width: 100vw; /* Full viewport width */
+  height: 70vh; /* Full viewport height */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.fullscreen-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0; */
+  background: rgba(0, 0, 0, 0.4); /* Optional dark overlay */
+  z-index: 1;
+}
+
+.fullscreen-bg > * {
+  position: relative;
+  z-index: 2; /* Bring content above the overlay */
+  text-align: center;
+}
+
