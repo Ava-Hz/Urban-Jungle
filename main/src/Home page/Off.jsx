@@ -4,7 +4,7 @@ import "./../App.css"
 const Off = () => {
   return (
     <div className="offimg fullscreen-bg flex  flex-col text-white">
-      <h1 className=" text-4xl z-10 text-center mt-5">
+      <h1 className=" text-4xl z-10 text-center mt-5 font-medium">
         Flash Sale: Up to 50% Off On Select Items!
       </h1>
       <p className="mt-5 ">

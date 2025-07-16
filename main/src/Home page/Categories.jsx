@@ -16,7 +16,6 @@ const Categories = () => {
       .get("https://parseapi.back4app.com/classes/Trend_Product", config)
       .then((response) => setData(response.data.results));
   }, []);
-  console.log(data);
   return (
     <div>
       <h1 className="text-center text-5xl h1font font-medium mt-20">

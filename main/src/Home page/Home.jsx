@@ -4,6 +4,7 @@ import Features from "./Features";
 import TrendingProducts from "./TrendingProducts";
 import Off from "./Off";
 import Categories from "./Categories";
+import PremierDestination from "./PremierDestination";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <TrendingProducts />
       <Off />
       <Categories />
+      <PremierDestination />
     </div>
   );
 };
