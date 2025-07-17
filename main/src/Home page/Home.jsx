@@ -5,6 +5,9 @@ import TrendingProducts from "./TrendingProducts";
 import Off from "./Off";
 import Categories from "./Categories";
 import PremierDestination from "./PremierDestination";
+import PopularPlant from "./PopularPlant";
+import CustomerComments from "./CustomerComments";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -15,6 +18,9 @@ const Home = () => {
       <Off />
       <Categories />
       <PremierDestination />
+      <PopularPlant />
+      <CustomerComments />
+      <Footer />
     </div>
   );
 };

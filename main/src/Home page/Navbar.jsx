@@ -5,6 +5,7 @@ import { FaInstagram, FaXTwitter, FaXmark } from "react-icons/fa6";
 import { GiShoppingBag, GiHamburgerMenu } from "react-icons/gi";
 import Welcome from "./Welcome";
 import { useState, useEffect } from "react";
+import HeaderIcon from "./HeaderIcon";
 
 const Navbar = () => {
   const [burgerMenu, setBurgerMenu] = useState(true);
@@ -47,17 +48,22 @@ const Navbar = () => {
 
   return (
     <div className="bgimg text-white">
-      <div className="w-full min-h-screen flex  justify-end">
+      <div className="w-full min-h-screen flex flex-cols-2 ">
+        <div className="hidden md:flex flex-col justify-start items-start z-20 p-4 py-10">
+          <HeaderIcon />
+        </div>
+
         <nav
-          className={`fixed w-full z-20 p-4 flex justify-end items-center transition-all duration-300 ${
+          className={`fixed  w-full z-20 p-6 flex flex-col justify-end items-end transition-all duration-300 ${
             isAtTop
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-full"
           }`}
         >
           {/* Navbar for Big Screen */}
+
           <div className="hidden md:flex mt-8 mr-5 items-center">
-            <ul className=" md:flex space-x-6">
+            <ul className=" md:flex space-x-6 h2font">
               {navItems.map((item) => (
                 <li
                   key={item.id}
