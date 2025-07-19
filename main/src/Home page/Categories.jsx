@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./../App.css";
 import axios from "axios";
 
+
 const Categories = () => {
   const [data, setData] = useState([]);
 
@@ -28,6 +29,7 @@ const Categories = () => {
             return (
               <div className="flex flex-col justify-center items-center mt-10">
                 <img src={item?.Image.url} alt="" className="" />
+
                 <p className="text-xl pb-10">{item?.place}</p>
               </div>
             );

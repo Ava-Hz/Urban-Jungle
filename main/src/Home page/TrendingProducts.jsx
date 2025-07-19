@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./../App.css"
+import "./../App.css";
+import { GiShoppingBag } from "react-icons/gi";
 
 const TrendingProducts = () => {
   const [data, setData] = useState([]);
@@ -25,11 +26,13 @@ const TrendingProducts = () => {
       <div className="grid md:grid-cols-3 gap-3 px-10 mt-15">
         {data.map((item) => {
           if (item?.IsTrending) {
-            
             return (
               <div className="flex flex-col justify-center items-center">
                 <div className="p-5 ">
-                  <img src={item?.Image.url} alt="" />
+                  <img src={item?.Image.url} alt="" className="object-cover" />
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white p-2 rounded-full shadow-md cursor-pointer">
+                    <GiShoppingBag className="text-black text-xl" />
+                  </div>
                   <p className="text-xl h1font">{item.plant_name}</p>
                   <p className="text-gray-400 text-sm">{item.place}</p>
                   <p className="text-bold">${item.Cost}.00</p>

@@ -3,9 +3,9 @@ import "./../App.css";
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import { FaInstagram, FaXTwitter, FaXmark } from "react-icons/fa6";
 import { GiShoppingBag, GiHamburgerMenu } from "react-icons/gi";
-import Welcome from "./Welcome";
 import { useState, useEffect } from "react";
-import HeaderIcon from "./HeaderIcon";
+
+import FooterIcon from "./../Home page/FooterIcon";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -48,14 +48,17 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="bgimg text-white">
-      <div className="w-full min-h-screen flex flex-cols-2 ">
-        <div className="hidden md:flex flex-col justify-start items-start z-20 p-4 py-10">
-          <HeaderIcon />
-        </div>
+    <div className=" text-black">
+      <div className="w-full flex flex-cols-2 ">
+        <Link
+          to={"/"}
+          className="flex flex-col justify-start items-start px-4 relative -top-10 md:-top-5"
+        >
+          <FooterIcon />
+        </Link>
 
         <nav
-          className={`fixed  w-full z-20 p-6 flex flex-col justify-end items-end transition-all duration-300 ${
+          className={`fixed  w-full z-20 p-6 md:p-0 flex flex-col justify-end items-end transition-all duration-300 ${
             isAtTop
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-full"
@@ -69,7 +72,7 @@ const Navbar = () => {
                 <li key={item.id}>
                   <Link
                     to={item.path}
-                    className={`px-4 py-2 cursor-pointer text-white ${
+                    className={`px-4 py-2 cursor-pointer text-black ${
                       activePage === item.id
                         ? "bg-green-500"
                         : "hover:underline"
@@ -119,10 +122,9 @@ const Navbar = () => {
                       ? "bg-green-500 text-white"
                       : "hover:bg-gray-200"
                   } transition-colors duration-200`}
+                  onClick={() => handleNavClick(item.id)}
                 >
-                  <Link to={item.path} onClick={() => handleNavClick(item.id)}>
-                    {item.label}
-                  </Link>
+                  <Link to={item.path}>{item.label}</Link>
                 </li>
               ))}
               <GiShoppingBag
@@ -133,8 +135,9 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-
-      <Welcome />
+      <div className="shop-bg text-white text-7xl">
+        <div className="z-20 h1font text-bold">Shop</div>
+      </div>
     </div>
   );
 };

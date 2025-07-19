@@ -1,5 +1,6 @@
-import React from 'react'
-import "./../App.css"
+import React from "react";
+import "./../App.css";
+import { Link } from "react-router-dom";
 
 const Off = () => {
   return (
@@ -12,11 +13,11 @@ const Off = () => {
         50% off on a selection of our best-selling products.
       </p>
       {/* Shop button */}
-      <button  className="border  rounded-full px-7 py-2 mt-10 cursor-pointer  hover:text-black hover:bg-white transition-colors duration-500">
-        Shop Now
+      <button className="border  rounded-full px-7 py-2 mt-10 cursor-pointer  hover:text-black hover:bg-white transition-colors duration-500">
+        <Link to={"/shop"}>Shop Now</Link>
       </button>
     </div>
   );
-}
+};
 
-export default Off
+export default Off;

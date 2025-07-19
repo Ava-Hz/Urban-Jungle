@@ -5,7 +5,7 @@ const FooterIcon = () => {
     <div className="flex md:flex-col  mt-8 mr-5 w-full z-20 p-4 justify-center ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="195"
+        width="160"
         height="40"
         viewBox="0 0 195 40"
         fill="none"

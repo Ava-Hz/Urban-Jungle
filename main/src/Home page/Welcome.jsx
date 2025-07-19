@@ -1,5 +1,6 @@
 import React from "react";
 import "./../App.css";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
@@ -12,7 +13,9 @@ const Welcome = () => {
       </h1>
 
       {/* Shop button */}
-      <button className="bg-[#698927]  rounded-full px-7 py-2 mt-2 cursor-pointer hover:underline hover:opacity-75 duration-500 z-20">Shop Now</button>
+      <button className="bg-[#698927]  rounded-full px-7 py-2 mt-2 cursor-pointer hover:underline hover:opacity-75 duration-500 z-20">
+        <Link to={"/shop"}>Shop Now</Link>
+      </button>
     </div>
   );
 };
