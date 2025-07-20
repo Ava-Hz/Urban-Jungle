@@ -92,3 +92,35 @@
   z-index: 2;
   text-align: center;
 }
+
+.shop-footer {
+  background-image: url("Images/footerShop.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  width: 100vw;
+  height: 70vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-bg::footer {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.shop-footer > * {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
