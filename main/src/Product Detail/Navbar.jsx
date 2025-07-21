@@ -93,7 +93,7 @@ const Navbar = () => {
               <FaFacebook className="hidden md:block mx-2 cursor-pointer mt-1 hover:opacity-20" />
               <FaYoutube className="hidden md:block mx-2 cursor-pointer mt-1 hover:opacity-20" />
 
-              <Link to={"/cart"} className="relative ml-4">
+              <Link to="/cart" className="relative ml-4">
                 <GiShoppingBag className="text-2xl cursor-pointer hover:opacity-20" />
                 {totalQuantity > 0 && (
                   <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
@@ -152,9 +152,6 @@ const Navbar = () => {
               </ul>
             </div>
           </nav>
-        </div>
-        <div className="shop-bg text-white text-7xl">
-          <div className="z-20 h1font text-bold">Shop</div>
         </div>
       </div>
     </Element>

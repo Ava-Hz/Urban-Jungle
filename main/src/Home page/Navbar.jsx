@@ -7,11 +7,12 @@ import Welcome from "./Welcome";
 import { useState, useEffect } from "react";
 import HeaderIcon from "./HeaderIcon";
 import { Link } from "react-router-dom";
+import { useCart } from "../Context/CartContext";
 
 const Navbar = () => {
   const [burgerMenu, setBurgerMenu] = useState(true);
   const [activePage, setActivePage] = useState("Home");
-
+  const { totalQuantity } = useCart();
   const toggleBurgerToXmark = () => {
     setBurgerMenu(!burgerMenu);
   };
@@ -85,7 +86,15 @@ const Navbar = () => {
             <FaInstagram className="hidden md:block mx-2 cursor-pointer mt-1 hover:opacity-20" />
             <FaFacebook className="hidden md:block mx-2 cursor-pointer mt-1 hover:opacity-20" />
             <FaYoutube className="hidden md:block mx-2 cursor-pointer mt-1 hover:opacity-20" />
-            <GiShoppingBag className="hidden md:block md:mx-2 cursor-pointer md:mt-1 text-2xl hover:opacity-20 " />
+
+            <Link to="/cart" className="relative ml-4">
+              <GiShoppingBag className="text-2xl cursor-pointer hover:opacity-20" />
+              {totalQuantity > 0 && (
+                <span className="absolute -top-2 -right-2 bg-white text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalQuantity}
+                </span>
+              )}
+            </Link>
           </div>
 
           {/* Burger menu / medium and small screen */}
@@ -111,6 +120,16 @@ const Navbar = () => {
                 `}
           >
             <ul className="w-full text-black">
+              <li className="relative flex justify-start items-start mt-4">
+                <Link to="/cart">
+                  <GiShoppingBag className="text-4xl cursor-pointer hover:opacity-20" />
+                  {totalQuantity > 0 && (
+                    <span className="absolute -top-2 left-4 bg-black text-white text-xs  rounded-full w-4 h-4 flex items-center justify-center">
+                      {totalQuantity}
+                    </span>
+                  )}
+                </Link>
+              </li>
               {navItems.map((item) => (
                 <li
                   key={item.id}
@@ -125,10 +144,6 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              <GiShoppingBag
-                color="black"
-                className="fixed top-0 left-0 text-4xl cursor-pointer hover:opacity-20 md:hidden"
-              />
             </ul>
           </div>
         </nav>

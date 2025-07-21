@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
+import { useCart } from "../Context/CartContext";
+import { GiShoppingBag } from "react-icons/gi";
 const Sorting = () => {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("all");
+
+    const [hoveredItemId, setHoveredItemId] = useState(null); 
+    const { addToCart } = useCart();
 
   useEffect(() => {
     const config = {
@@ -36,36 +41,58 @@ const Sorting = () => {
   return (
     <div className="p-6">
       <div className=" flex justify-end">
-        
-          <label htmlFor="sort" className="mt-5 mr-5 font-bold text-gray-500 ">
-            Sorted by:
-          </label>
-        
-          <select
-            id="sort"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-            className="border text-gray-500 rounded px-5 py-3"
-          >
-            <option value="all">All</option>
-            <option value="latest">Latest</option>
-            <option value="price">Price</option>
-          </select>
-        
+        <label htmlFor="sort" className="mt-5 mr-5 font-bold text-gray-500 ">
+          Sorted by:
+        </label>
+
+        <select
+          id="sort"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="border text-gray-500 rounded px-5 py-3"
+        >
+          <option value="all">All</option>
+          <option value="latest">Latest</option>
+          <option value="price">Price</option>
+        </select>
       </div>
 
       {/* Display Sorted Products */}
       <div className="grid grid-col md:grid-cols-3 gap-3">
         {getSortedProducts().map((item) => (
-          <div
+          <Link
+            to={`/product/${item.objectId}`}
             key={item.objectId}
-            className="p-4 rounded hover:shadow-sm text-center flex flex-col justify-center items-center"
+            state={{ product: item }}
+            className="cursor-pointer block"
           >
-            <img src={item.Image?.url} alt={item.plant_name} />
-            <h2 className="font-semibold text-lg">{item.plant_name}</h2>
-            <p className="text-gray-600">{item.place}</p>
-            <p className="font-bold text-green-700">${item.Cost}.00</p>
-          </div>
+            <div
+              key={item.objectId}
+              className="relative p-4 rounded hover:shadow-sm text-center flex flex-col justify-center items-center"
+              onMouseEnter={() => setHoveredItemId(item.objectId)}
+              onMouseLeave={() => setHoveredItemId(null)}
+            >
+              <img
+                src={item.Image?.url}
+                alt={item.plant_name}
+                className="object-cover w-full"
+              />
+              <h2 className="font-semibold text-lg">{item.plant_name}</h2>
+              <p className="text-gray-600">{item.place}</p>
+              <p className="font-bold text-green-700">${item.Cost}.00</p>
+                              {hoveredItemId === item.objectId && (
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                    addToCart(item, 1)}}
+                                  className="absolute top-2 right-2 bg-black text-white p-2 rounded-full"
+                                >
+                                  <GiShoppingBag />
+                                </button>
+                              )}
+            </div>
+          </Link>
         ))}
       </div>
     </div>
