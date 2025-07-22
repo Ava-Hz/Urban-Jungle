@@ -5,7 +5,7 @@ const PremierDestination = () => {
   return (
     <div className="grid md:grid-cols-2 bg-[#ECF4D3] w-full min-h-screen">
       <div className="flex flex-col justify-center items-center bg-[#ECF4D3]">
-        <img src={pic} alt="" className="md:p-20 p-10 m-0 " />
+        <img src={pic} alt="" className="md:p-20 p-10 m-0 " loading="lazy" />
       </div>
       <div className="flex flex-col justify-start items-start h1font ml-5 bg-[#ECF4D3]">
         <h1 className="md:mt-40 ml-5 md:ml-0 text-[2.625rem] w-[65%] font-medium">

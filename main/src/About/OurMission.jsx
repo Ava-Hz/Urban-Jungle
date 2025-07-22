@@ -36,7 +36,7 @@ const OurMission = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <img src={pic} alt="" className="md:p-20 p-10 m-0 " />
+        <img src={pic} alt="" className="md:p-20 p-10 m-0 " loading="lazy" />
       </div>
     </div>
   );

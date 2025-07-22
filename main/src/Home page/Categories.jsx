@@ -28,7 +28,7 @@ const Categories = () => {
           if (item?.Cost == 0) {
             return (
               <div className="flex flex-col justify-center items-center mt-10">
-                <img src={item?.Image.url} alt="" className="" />
+                <img src={item?.Image.url} alt="" className="" loading="lazy" />
 
                 <p className="text-xl pb-10">{item?.place}</p>
               </div>

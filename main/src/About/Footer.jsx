@@ -3,6 +3,7 @@ import { FaFacebook, FaYoutube } from "react-icons/fa";
 import { FaInstagram, FaXTwitter, FaXmark } from "react-icons/fa6";
 import FooterIcon from "./../Home page/FooterIcon";
 import "./../App.css"
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,16 +14,20 @@ const Footer = () => {
         <div className="flex flex-col mt-8 mr-5 items-center w-full z-20 p-4 flex justify-center">
           <ul className="flex space-x-6 h2font">
             <li className="cursor-pointer hover:underline hover:text-green-500">
-              Home
+              <Link to={"/"}>Home</Link>
+              
             </li>
             <li className="cursor-pointer hover:underline hover:text-green-500">
-              Shop
+              <Link to={"/shop"}>Shop</Link>
+              
             </li>
             <li className="cursor-pointer hover:underline hover:text-green-500">
-              About
+              <Link to={"/about"}>About</Link>
+              
             </li>
             <li className="cursor-pointer hover:underline hover:text-green-500">
-              Contact
+              <Link to={"/contact"}>Contact</Link>
+              
             </li>
           </ul>
         </div>

@@ -40,6 +40,7 @@ const PopularPlant = () => {
                     src={item?.Image.url}
                     alt={item.plant_name}
                     className="object-cover w-full"
+                    loading="lazy"
                   />
                   <p className="md:text-xl h1font">{item.plant_name}</p>
                   <p className="text-gray-400 text-sm">{item.place}</p>

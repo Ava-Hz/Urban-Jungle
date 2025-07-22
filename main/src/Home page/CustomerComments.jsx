@@ -1,6 +1,6 @@
 import React from 'react'
-import imageone from "./../Images/team-01.jpg";
-import imagetwo from "./../Images/team-02.jpg";
+import firstImage from "./../Images/team-01.jpg";
+import secondImage from "./../Images/team-02.jpg";
 import thirdimage from "./../Images/team-03.jpg";
 
 const CustomerComments = () => {
@@ -8,12 +8,12 @@ const CustomerComments = () => {
 const testimonials = [
   {
     text: "I am absolutely thrilled with the service I received from their company! They were attentive, responsive, and genuinely cared about meeting my needs. I highly recommend them.",
-    image: imageone,
+    image: firstImage,
     name: "Your Client",
   },
   {
     text: "I am absolutely thrilled with the service I received from their company! They were attentive, responsive, and genuinely cared about meeting my needs. I highly recommend them.",
-    image: imagetwo,
+    image: secondImage,
     name: "Your Client",
   },
   {
@@ -45,6 +45,7 @@ const testimonials = [
                   src={t.image}
                   alt={t.name}
                   className="w-10 h-10 rounded-full mr-3"
+                  loading="lazy"
                 />
                 <p className="text-sm text-gray-700">{t.name}</p>
               </div>
