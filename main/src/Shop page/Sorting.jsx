@@ -58,7 +58,7 @@ const Sorting = () => {
       </div>
 
       {/* Display Sorted Products */}
-      <div className="grid grid-col md:grid-cols-3 gap-3">
+      <div className="grid grid-col grid-cols-3 gap-3">
         {getSortedProducts().map((item) => (
           <Link
             to={`/product/${item.objectId}`}

@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 
 const PerfectPlant = () => {
   return (
-    <div className="shop-footer flex flex-col">
+    <div className="shop-footer flex flex-col overflow-x-auto max-w-full">
       <h1 className="text-5xl mb-10 text-white rounded">
         Ready to Find your Perfect Plant?
       </h1>

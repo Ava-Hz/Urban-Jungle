@@ -22,7 +22,7 @@ const Categories = () => {
       <h1 className="text-center text-5xl h1font font-medium mt-20">
         Our Categories
       </h1>
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         {data.map((item) => {
           // console.log(item?.Image.url)
           if (item?.Cost == 0) {

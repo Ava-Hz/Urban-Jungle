@@ -6,10 +6,12 @@ import ScrollToTop from "./ScrollToTop";
 
 import React, { Suspense, lazy } from "react";
 
+
 const Home = lazy(() => import("./Home page/Home"));
 const Shop = lazy(() => import("./Shop page/Shop"));
 const ProductDetail = lazy(() => import("./Product Detail/ProductDetail"));
 const Cart = lazy(() => import("./Shopping Cart/Cart"));
+const About = lazy(() => import("./About/About"));
 
 function App() {
   return (
@@ -21,7 +23,8 @@ function App() {
           <Route path="/shop" element={<Shop />} />
 
           <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/cart" element = {<Cart />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </div>
