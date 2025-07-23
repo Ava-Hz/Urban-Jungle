@@ -7,17 +7,17 @@ const PremierDestination = () => {
       <div className="flex flex-col justify-center items-center bg-[#ECF4D3]">
         <img src={pic} alt="" className="md:p-20 p-10 m-0 " loading="lazy" />
       </div>
-      <div className="flex flex-col justify-start items-start h1font ml-5 bg-[#ECF4D3]">
-        <h1 className="md:mt-40 ml-5 md:ml-0 text-[2.625rem] w-[65%] font-medium">
+      <div className="flex flex-col justify-center items-center md:justify-start md:items-start h1font ml-5 bg-[#ECF4D3]">
+        <h1 className="md:mt-40 ml-5 md:ml-0 text-[2.625rem] w-[80%] md:w-[65%] font-medium">
           Your Premier Destination for All Green.
         </h1>
-        <p className="text-gray-700 mt-2 ml-5 md:ml-0 w-[75%]">
+        <p className="text-gray-700 mt-2 ml-5 md:ml-0 w-[90%] md:w-[75%]">
           At Urban Jungle Co., we believe in the transformative power of plants.
           Whether you’re a seasoned gardener or just starting your green
           journey, our curated selection of plants will inspire and enrich your
           living space.
         </p>
-        <hr className="w-[75%] h-[1px] bg-gray-400 border-0 my-10 " />
+        <hr className="w-[90%] md:w-[75%] h-[1px] bg-gray-400 border-0 my-10 " />
         <div className="grid grid-cols-2 gap-2 h1font">
           <div className="flex flex-col justify-center items-start text-2xl mr-10 font-medium">
             98%
