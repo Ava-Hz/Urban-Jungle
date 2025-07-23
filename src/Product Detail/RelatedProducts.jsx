@@ -46,7 +46,7 @@ const RandomProducts = () => {
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="h-80 w-full object-cover rounded mb-2"
+                className="h-90 w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
@@ -71,7 +71,7 @@ const RandomProducts = () => {
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="h-80 w-full object-cover rounded mb-2"
+                className="h-90 w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
