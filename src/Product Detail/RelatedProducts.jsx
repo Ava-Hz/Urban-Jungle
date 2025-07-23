@@ -19,7 +19,7 @@ const RandomProducts = () => {
         const allProducts = response.data.results;
         const validProducts = allProducts.filter((item) => item.Cost !== 0);
         const shuffled = [...validProducts].sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, 3); // فقط سه تا محصول
+        const selected = shuffled.slice(0, 3);
 
         setRandomItems(selected);
       })
@@ -34,7 +34,7 @@ const RandomProducts = () => {
         Related Products
       </h1>
 
-      {/* دسکتاپ: سه‌ستونه */}
+    
       <div className="hidden md:grid grid-cols-3 gap-4">
         {randomItems.map((item) => (
           <div key={item.objectId} className="p-4 rounded shadow bg-white">
@@ -56,7 +56,7 @@ const RandomProducts = () => {
         ))}
       </div>
 
-      {/* موبایل: اسکرول افقی */}
+  
       <div className="md:hidden flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 pb-4">
         {randomItems.map((item) => (
           <div
@@ -71,7 +71,7 @@ const RandomProducts = () => {
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="h-48 w-full object-cover rounded mb-2"
+                className="h-60 w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
