@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Link as scrollLink } from "react-scroll";
 
 const RandomProducts = () => {
   const [randomItems, setRandomItems] = useState([]);
@@ -20,7 +19,7 @@ const RandomProducts = () => {
         const allProducts = response.data.results;
         const validProducts = allProducts.filter((item) => item.Cost !== 0);
         const shuffled = [...validProducts].sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, 3);
+        const selected = shuffled.slice(0, 10);
 
         setRandomItems(selected);
       })
@@ -30,22 +29,47 @@ const RandomProducts = () => {
   }, []);
 
   return (
-    <div>
-      <h1 className="mx-10 text-5xl h1font font-medium">Related Products</h1>
+    <div className="mx-5 md:mx-10">
+      <h1 className="text-3xl md:text-5xl h1font font-medium mb-6">
+        Related Products
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-10 my-10 w-[50%]">
+      <div className="hidden md:grid grid-cols-3 gap-4">
         {randomItems.map((item) => (
-          <div key={item.objectId} className=" p-4 rounded shadow">
+          <div key={item.objectId} className="p-4 rounded shadow bg-white">
             <Link
               to={`/product/${item.objectId}`}
-              key={item.objectId}
               state={{ product: item }}
               className="cursor-pointer block"
             >
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className=" h-auto object-cover rounded mb-2"
+                className="h-48 w-full object-cover rounded mb-2"
+                loading="lazy"
+              />
+              <h3 className="text-lg font-bold">{item.plant_name}</h3>
+              <p className="text-gray-600">${item.Cost}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
+
+      <div className="md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-4 pb-4">
+        {randomItems.map((item) => (
+          <div
+            key={item.objectId}
+            className="min-w-[80%] snap-start flex-shrink-0 bg-white p-4 rounded shadow"
+          >
+            <Link
+              to={`/product/${item.objectId}`}
+              state={{ product: item }}
+              className="cursor-pointer block"
+            >
+              <img
+                src={item.Image?.url}
+                alt={item.plant_name}
+                className="h-48 w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
