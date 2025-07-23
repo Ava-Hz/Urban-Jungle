@@ -34,7 +34,6 @@ const RandomProducts = () => {
         Related Products
       </h1>
 
-    
       <div className="hidden md:grid grid-cols-3 gap-4">
         {randomItems.map((item) => (
           <div key={item.objectId} className="p-4 rounded shadow bg-white">
@@ -46,7 +45,7 @@ const RandomProducts = () => {
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="h-90 w-full object-cover rounded mb-2"
+                className="h-auto w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
@@ -56,7 +55,6 @@ const RandomProducts = () => {
         ))}
       </div>
 
-  
       <div className="md:hidden flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 pb-4">
         {randomItems.map((item) => (
           <div
@@ -71,7 +69,7 @@ const RandomProducts = () => {
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="h-90 w-full object-cover rounded mb-2"
+                className="h-auto w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
