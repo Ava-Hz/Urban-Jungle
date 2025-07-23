@@ -19,7 +19,7 @@ const RandomProducts = () => {
         const allProducts = response.data.results;
         const validProducts = allProducts.filter((item) => item.Cost !== 0);
         const shuffled = [...validProducts].sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, 10);
+        const selected = shuffled.slice(0, 3); // فقط سه تا محصول
 
         setRandomItems(selected);
       })
@@ -34,6 +34,7 @@ const RandomProducts = () => {
         Related Products
       </h1>
 
+      {/* دسکتاپ: سه‌ستونه */}
       <div className="hidden md:grid grid-cols-3 gap-4">
         {randomItems.map((item) => (
           <div key={item.objectId} className="p-4 rounded shadow bg-white">
@@ -55,7 +56,8 @@ const RandomProducts = () => {
         ))}
       </div>
 
-      <div className="md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-4 pb-4">
+      {/* موبایل: اسکرول افقی */}
+      <div className="md:hidden flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 pb-4">
         {randomItems.map((item) => (
           <div
             key={item.objectId}
