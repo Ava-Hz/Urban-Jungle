@@ -6,6 +6,7 @@ import Description from "./Description";
 import RelatedProducts from "./RelatedProducts";
 import { useCart } from "../Context/CartContext";
 import { useState } from "react";
+import Notification from "../Notification";
 
 const ProductDetail = () => {
   const { state } = useLocation();
@@ -13,6 +14,13 @@ const ProductDetail = () => {
 
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
+  const [notificationVisible, setNotificationVisible] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    setNotificationVisible(true);
+    setTimeout(() => setNotificationVisible(false), 5000);
+  };
 
   // if user goes to /product/:id directly without coming from sorting page
   if (!state?.product) {
@@ -26,6 +34,11 @@ const ProductDetail = () => {
   return (
     <div>
       <Navbar />
+      <Notification
+        message="Product added to cart!"
+        visible={notificationVisible}
+      />
+
       <div className="p-10 grid md:grid-cols-2 w-full min-h-screen">
         <div className="pr-10 flex flex-col">
           <img
@@ -66,7 +79,7 @@ const ProductDetail = () => {
             />
             <button
               className="px-4 py-1 bg-[#698927] text-white rounded-full hover:opacity-[75%]"
-              onClick={() => addToCart(product, quantity)}
+              onClick={handleAddToCart}
             >
               Add to Cart
             </button>

@@ -3,13 +3,21 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 import { GiShoppingBag } from "react-icons/gi";
+import Notification from "../Notification";
 
 const Sorting = () => {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("all");
   const [hoveredItemId, setHoveredItemId] = useState(null);
   const { addToCart } = useCart();
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+  const [notificationVisible, setNotificationVisible] = useState(false);
+
+  const handleAddToCart = (item) => {
+    addToCart(item, 1);
+    setNotificationVisible(true);
+    setTimeout(() => setNotificationVisible(false), 5000);
+  };
 
   useEffect(() => {
     const config = {
@@ -23,7 +31,7 @@ const Sorting = () => {
       .get("https://parseapi.back4app.com/classes/Trend_Product", config)
       .then((response) => {
         setProducts(response.data.results);
-        setLoading(false); 
+        setLoading(false);
       });
   }, []);
 
@@ -44,6 +52,11 @@ const Sorting = () => {
 
   return (
     <div className="p-6">
+      <Notification
+        message="Product added to cart!"
+        visible={notificationVisible}
+      />
+
       <div className="flex justify-end">
         <label htmlFor="sort" className="mt-5 mr-5 font-bold text-gray-500">
           Sorted by:
@@ -61,7 +74,6 @@ const Sorting = () => {
         </select>
       </div>
 
-    
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
         {loading
           ? [...Array(6)].map((_, i) => (
@@ -100,7 +112,7 @@ const Sorting = () => {
                       onClick={(e) => {
                         e.stopPropagation();
                         e.preventDefault();
-                        addToCart(item, 1);
+                        handleAddToCart(item);
                       }}
                       className="absolute top-2 right-2 bg-black text-white p-2 rounded-full"
                     >
