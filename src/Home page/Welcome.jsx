@@ -8,7 +8,7 @@ const Welcome = () => {
       <h4 className="block md:text-1xl mb-4 text-center h1font">
         WELCOM TO URBAN JUNGLE CO.
       </h4>
-      <h1 className="block text-4xl md:text-6xl  leading-[77px] h1font">
+      <h1 className="block text-2xl md:text-6xl  leading-[77px] h1font">
         Discover the Beauty of Nature at Your Fingertips
       </h1>
 

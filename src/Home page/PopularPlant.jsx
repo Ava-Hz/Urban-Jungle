@@ -24,7 +24,7 @@ const PopularPlant = () => {
       <h1 className="text-center text-5xl h1font font-medium mt-20">
         Popular Products
       </h1>
-      <div className="grid grid-cols-3 gap-3 md:px-10 mt-15">
+      <div className="grid md:grid-cols-3 gap-3 md:px-10 mt-15">
         {data.map((item) => {
           if (!item?.IsPopular) return null;
 
