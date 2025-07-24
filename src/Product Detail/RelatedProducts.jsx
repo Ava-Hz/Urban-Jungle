@@ -74,7 +74,7 @@ const RandomProducts = () => {
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="w-full object-cover rounded mb-2"
+                className="w-[70%] mx-auto object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
