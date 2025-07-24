@@ -34,18 +34,22 @@ const RandomProducts = () => {
         Related Products
       </h1>
 
-      <div className="hidden md:grid grid-cols-3 gap-2">
+      {/* Desktop */}
+      <div className="hidden md:grid grid-cols-3 gap-5">
         {randomItems.map((item) => (
-          <div key={item.objectId} className="p-4 rounded shadow bg-white">
+          <div
+            key={item.objectId}
+            className="rounded shadow bg-white overflow-hidden"
+          >
             <Link
               to={`/product/${item.objectId}`}
               state={{ product: item }}
-              className="cursor-pointer block"
+              className="cursor-pointer block p-4 text-center"
             >
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="h-auto w-[50%] object-cover rounded mb-2"
+                className="w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
@@ -55,11 +59,12 @@ const RandomProducts = () => {
         ))}
       </div>
 
+      {/* Mobile */}
       <div className="md:hidden flex overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 pl-5">
         {randomItems.map((item) => (
           <div
             key={item.objectId}
-            className="min-w-[50%] snap-start flex-shrink-0 bg-white p-4 rounded shadow mr-5 last:mr-0"
+            className="min-w-[50%] snap-start flex-shrink-0 bg-white p-4 rounded shadow mr-5 last:mr-0 text-center"
           >
             <Link
               to={`/product/${item.objectId}`}
@@ -69,7 +74,7 @@ const RandomProducts = () => {
               <img
                 src={item.Image?.url}
                 alt={item.plant_name}
-                className="h-auto w-[50%] object-cover rounded mb-2"
+                className="w-full object-cover rounded mb-2"
                 loading="lazy"
               />
               <h3 className="text-lg font-bold">{item.plant_name}</h3>
