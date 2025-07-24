@@ -29,7 +29,7 @@ const RandomProducts = () => {
   }, []);
 
   return (
-    <div className="mx-5 md:mx-10">
+    <div className="w-[50%] mx-auto">
       <h1 className="text-3xl md:text-5xl h1font font-medium mb-6">
         Related Products
       </h1>
@@ -59,7 +59,7 @@ const RandomProducts = () => {
         {randomItems.map((item) => (
           <div
             key={item.objectId}
-            className="min-w-[80%] snap-start flex-shrink-0 bg-white p-4 rounded shadow"
+            className="min-w-[50%] snap-start flex-shrink-0 bg-white p-4 rounded shadow"
           >
             <Link
               to={`/product/${item.objectId}`}
