@@ -29,7 +29,7 @@ const RandomProducts = () => {
   }, []);
 
   return (
-    <div className="w-[50%] mx-auto">
+    <div className="w-full md:w-[50%] ml-5">
       <h1 className="text-3xl md:text-5xl h1font font-medium mb-6">
         Related Products
       </h1>
