@@ -34,7 +34,7 @@ const RandomProducts = () => {
         Related Products
       </h1>
 
-      <div className="hidden md:grid grid-cols-3 gap-4">
+      <div className="hidden md:grid grid-cols-3 gap-2">
         {randomItems.map((item) => (
           <div key={item.objectId} className="p-4 rounded shadow bg-white">
             <Link
@@ -55,11 +55,11 @@ const RandomProducts = () => {
         ))}
       </div>
 
-      <div className="md:hidden flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 pb-4">
+      <div className="md:hidden flex overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 pl-5">
         {randomItems.map((item) => (
           <div
             key={item.objectId}
-            className="min-w-[50%] snap-start flex-shrink-0 bg-white p-4 rounded shadow"
+            className="min-w-[50%] snap-start flex-shrink-0 bg-white p-4 rounded shadow mr-5 last:mr-0"
           >
             <Link
               to={`/product/${item.objectId}`}
